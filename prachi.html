@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nayepankh Foundation</title>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#1a1a1a;
+  --primary:#4f46e5;
+  --card:#f4f4f5;
+}
+
+[data-theme="dark"]{
+  --bg:#0f172a;
+  --text:#e5e7eb;
+  --primary:#818cf8;
+  --card:#1e293b;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  transition:0.3s ease;
+  line-height:1.6;
+}
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:var(--bg);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  z-index:1000;
+}
+
+nav a{
+  margin:0 10px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:500;
+}
+
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  background:linear-gradient(120deg, var(--primary), transparent);
+  animation:fadeIn 1s ease-in;
+}
+
+.hero h1{
+  font-size:3rem;
+  margin-bottom:10px;
+}
+
+.hero p{
+  max-width:600px;
+}
+
+.btn{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  background:var(--primary);
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+section{
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  transition:0.3s;
+  animation:slideUp 0.6s ease;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:var(--card);
+}
+
+.toggle{
+  cursor:pointer;
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid var(--text);
+}
+
+/* Animations */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(-20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes slideUp{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero h1{font-size:2.2rem;}
+  nav{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div><strong>Nayepankh Foundation</strong></div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#impact">Impact</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <button class="toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Empowering Every Child</h1>
+  <p>
+    Nayepankh Foundation works to provide education, support, and opportunities
+    to underprivileged children so they can achieve their dreams.
+  </p>
+  <button class="btn">Join Our Mission</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>
+    We are a non-profit organization dedicated to education, skill development,
+    and social upliftment. Our mission is to create equal opportunities for all.
+  </p>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <h2>What We Do</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Education</h3>
+      <p>Providing free learning support and resources.</p>
+    </div>
+    <div class="card">
+      <h3>Skill Development</h3>
+      <p>Training youth with modern job-ready skills.</p>
+    </div>
+    <div class="card">
+      <h3>Community Help</h3>
+      <p>Supporting families with essential resources.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <h2>Our Impact</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>5000+</h3>
+      <p>Children Supported</p>
+    </div>
+    <div class="card">
+      <h3>120+</h3>
+      <p>Villages Reached</p>
+    </div>
+    <div class="card">
+      <h3>300+</h3>
+      <p>Volunteers</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: contact@nayepankh.org</p>
+  <p>Phone: +91-XXXXXXXXXX</p>
+</section>
+
+<footer>
+  <p>© 2026 Nayepankh Foundation. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleTheme(){
+  const root = document.documentElement;
+  if(root.getAttribute("data-theme")==="dark"){
+    root.removeAttribute("data-theme");
+  }else{
+    root.setAttribute("data-theme","dark");
+  }
+}
+</script>
+
+</body>
+</html>
